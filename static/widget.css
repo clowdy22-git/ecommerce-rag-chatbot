@@ -1,0 +1,303 @@
+:root {
+  --sa-ink: #10241c;
+  --sa-evergreen: #1c4d3a;
+  --sa-evergreen-dark: #123328;
+  --sa-mustard: #d9a441;
+  --sa-cream: #f7f5ef;
+  --sa-line: #e2e0d6;
+  --sa-danger: #b3452c;
+  --sa-radius: 14px;
+  --sa-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+#sa-launcher {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--sa-evergreen);
+  color: var(--sa-cream);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(16, 36, 28, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999998;
+  transition: transform 0.15s ease;
+  font-family: var(--sa-font);
+}
+
+#sa-launcher:hover {
+  transform: scale(1.06);
+}
+
+#sa-launcher svg {
+  width: 26px;
+  height: 26px;
+}
+
+#sa-panel {
+  position: fixed;
+  bottom: 92px;
+  right: 22px;
+  width: 360px;
+  max-width: calc(100vw - 32px);
+  height: 520px;
+  max-height: calc(100vh - 140px);
+  background: var(--sa-cream);
+  border-radius: var(--sa-radius);
+  box-shadow: 0 12px 40px rgba(16, 36, 28, 0.28);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 999999;
+  font-family: var(--sa-font);
+  border: 1px solid var(--sa-line);
+}
+
+#sa-panel.open {
+  display: flex;
+}
+
+#sa-header {
+  background: var(--sa-evergreen);
+  color: var(--sa-cream);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#sa-header .sa-title {
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+}
+
+#sa-header .sa-sub {
+  font-size: 11px;
+  opacity: 0.75;
+  margin-top: 2px;
+}
+
+#sa-close {
+  background: none;
+  border: none;
+  color: var(--sa-cream);
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  padding: 4px;
+}
+
+#sa-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--sa-cream);
+}
+
+.sa-msg {
+  max-width: 84%;
+  padding: 9px 12px;
+  border-radius: 12px;
+  font-size: 13.5px;
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+.sa-msg.user {
+  align-self: flex-end;
+  background: var(--sa-evergreen);
+  color: var(--sa-cream);
+  border-bottom-right-radius: 4px;
+}
+
+.sa-msg.bot {
+  align-self: flex-start;
+  background: #fff;
+  color: var(--sa-ink);
+  border: 1px solid var(--sa-line);
+  border-bottom-left-radius: 4px;
+}
+
+.sa-msg.refused {
+  border-color: var(--sa-danger);
+}
+
+.sa-cards {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  align-self: flex-start;
+  max-width: 100%;
+}
+
+.sa-card {
+  flex: 0 0 auto;
+  width: 104px;
+  background: #fff;
+  border: 1px solid var(--sa-line);
+  border-radius: 10px;
+  padding: 6px;
+  text-decoration: none;
+  color: var(--sa-ink);
+  display: block;
+}
+
+.sa-card img {
+  width: 100%;
+  height: 72px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: var(--sa-cream);
+  display: block;
+}
+
+.sa-card-title {
+  font-size: 10.5px;
+  font-weight: 600;
+  margin-top: 5px;
+  line-height: 1.25;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.sa-card-price {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--sa-mustard);
+  margin-top: 3px;
+}
+
+.sa-confidence {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10.5px;
+  color: #6b6b60;
+  margin-top: -4px;
+  padding-left: 2px;
+}
+
+.sa-conf-tag {
+  display: inline-block;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: var(--sa-ink);
+  background: var(--sa-mustard);
+}
+
+.sa-conf-tag.low {
+  background: #ecd9c8;
+  color: var(--sa-danger);
+}
+
+.sa-feedback {
+  align-self: flex-start;
+  display: flex;
+  gap: 6px;
+  margin-top: -4px;
+}
+
+.sa-feedback button {
+  border: 1px solid var(--sa-line);
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 2px 7px;
+}
+
+.sa-feedback button.active {
+  background: var(--sa-evergreen);
+  color: var(--sa-cream);
+  border-color: var(--sa-evergreen);
+}
+
+.sa-typing {
+  align-self: flex-start;
+  font-size: 12px;
+  color: #8a8a7d;
+  font-style: italic;
+}
+
+#sa-inputbar {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  border-top: 1px solid var(--sa-line);
+  background: #fff;
+}
+
+#sa-input {
+  flex: 1;
+  border: 1px solid var(--sa-line);
+  border-radius: 10px;
+  padding: 9px 11px;
+  font-size: 13.5px;
+  font-family: var(--sa-font);
+  resize: none;
+  outline: none;
+}
+
+#sa-input:focus {
+  border-color: var(--sa-evergreen);
+}
+
+#sa-send {
+  background: var(--sa-mustard);
+  color: var(--sa-ink);
+  border: none;
+  border-radius: 10px;
+  padding: 0 14px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+#sa-send:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 420px) {
+  #sa-panel {
+    right: 12px;
+    left: 12px;
+    width: auto;
+  }
+
+  #sa-launcher {
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
+.sa-card {
+  position: relative;
+}
+
+.sa-card-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: var(--sa-evergreen);
+  color: var(--sa-cream);
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
