@@ -3,7 +3,6 @@ __pycache__/
 *.pyc
 .env
 feedback_log.jsonl
-data/products.json
 *.csv
 .pytest_cache/
 debug_*.py
